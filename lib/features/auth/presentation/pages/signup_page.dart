@@ -6,6 +6,7 @@ import 'package:flutter_provider101/core/utils/show_snackbar.dart';
 import 'package:flutter_provider101/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_provider101/features/auth/presentation/widget/auth_field.dart';
 import 'package:flutter_provider101/features/auth/presentation/widget/auth_gradient_btn.dart';
+import 'package:flutter_provider101/features/blog/presentation/pages/blog_page.dart';
 import 'package:gap/gap.dart';
 
 import 'login.dart';
@@ -47,7 +48,11 @@ class _SignUpPageState extends State<SignUpPage> {
               if (state is AuthFailure) {
                 showSnackbar(context, state.message);
               } else if (state is AuthSuccess) {
-                showSnackbar(context, 'SignUp success!');
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  BlogPage.route(),
+                  (route) => false,
+                );
               }
             },
             builder: (context, state) {

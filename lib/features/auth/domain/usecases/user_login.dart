@@ -1,6 +1,6 @@
 import 'package:flutter_provider101/core/error/failures.dart';
 import 'package:flutter_provider101/core/usecase/usecase.dart';
-import 'package:flutter_provider101/core/entities/user.dart';
+import 'package:flutter_provider101/core/common/entities/user.dart';
 import 'package:flutter_provider101/features/auth/domain/repositories/auth_repository.dart';
 import 'package:fpdart/fpdart.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_provider101/core/entities/user.dart';
+import 'package:flutter_provider101/core/common/entities/user.dart';
 
 part 'app_user_state.dart';
 

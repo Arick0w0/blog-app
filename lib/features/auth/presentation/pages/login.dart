@@ -8,6 +8,7 @@ import 'package:flutter_provider101/features/auth/presentation/bloc/auth_bloc.da
 import 'package:flutter_provider101/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter_provider101/features/auth/presentation/widget/auth_field.dart';
 import 'package:flutter_provider101/features/auth/presentation/widget/auth_gradient_btn.dart';
+import 'package:flutter_provider101/features/blog/presentation/pages/blog_page.dart';
 import 'package:gap/gap.dart';
 
 class LoginPage extends StatefulWidget {
@@ -46,7 +47,11 @@ class _LoginPageState extends State<LoginPage> {
           if (state is AuthFailure) {
             showSnackbar(context, state.message);
           } else if (state is AuthSuccess) {
-            showSnackbar(context, 'Login success!');
+            Navigator.pushAndRemoveUntil(
+              context,
+              BlogPage.route(),
+              (route) => false,
+            );
           }
         },
         builder: (context, state) {

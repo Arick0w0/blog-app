@@ -16,9 +16,9 @@ abstract interface class AuthRemoteDataSource {
   Future<UserModel?> getCurrentUserData();
 }
 
-class AuthRemoteDataSourcesImpl implements AuthRemoteDataSource {
+class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final SupabaseClient supabaseClient;
-  AuthRemoteDataSourcesImpl(this.supabaseClient);
+  AuthRemoteDataSourceImpl(this.supabaseClient);
   @override
   Session? get currentUserSession => supabaseClient.auth.currentSession;
 
@@ -35,9 +35,12 @@ class AuthRemoteDataSourcesImpl implements AuthRemoteDataSource {
       if (response.user == null) {
         throw const ServerException('User is Empty!');
       }
-      return UserModel.fromJson(response.user!.toJson()).copyWith(
-        email: currentUserSession!.user.email,
-      );
+      return UserModel.fromJson(response.user!.toJson());
+      // .copyWith(
+      //   email: currentUserSession!.user.email,
+      // );
+    } on AuthException catch (e) {
+      return throw ServerException(e.message);
     } catch (e) {
       throw ServerException(e.toString());
     }
@@ -61,9 +64,12 @@ class AuthRemoteDataSourcesImpl implements AuthRemoteDataSource {
         throw const ServerException('User is Empty!');
       }
       // return response.user!.toJson();
-      return UserModel.fromJson(response.user!.toJson()).copyWith(
-        email: currentUserSession!.user.email,
-      );
+      return UserModel.fromJson(response.user!.toJson());
+      // .copyWith(
+      //   email: currentUserSession!.user.email,
+      // );
+    } on AuthException catch (e) {
+      return throw ServerException(e.message);
     } catch (e) {
       throw ServerException(e.toString());
     }
@@ -85,7 +91,7 @@ class AuthRemoteDataSourcesImpl implements AuthRemoteDataSource {
       }
       // if user is not logIn then return null
       return null;
-    } on ServerException catch (e) {
+    } catch (e) {
       throw ServerException(e.toString());
     }
   }

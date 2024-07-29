@@ -1,4 +1,4 @@
-import 'package:flutter_provider101/core/entities/user.dart';
+import 'package:flutter_provider101/core/common/entities/user.dart';
 
 class UserModel extends User {
   UserModel({

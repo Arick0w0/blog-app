@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_provider101/core/common/widgets/cubits/app_user/app_user_cubit.dart';
+import 'package:flutter_provider101/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:flutter_provider101/core/usecase/usecase.dart';
-import 'package:flutter_provider101/core/entities/user.dart';
+import 'package:flutter_provider101/core/common/entities/user.dart';
 import 'package:flutter_provider101/features/auth/domain/usecases/current_user.dart';
 import 'package:flutter_provider101/features/auth/domain/usecases/user_login.dart';
 import 'package:flutter_provider101/features/auth/domain/usecases/user_sign_up.dart';
